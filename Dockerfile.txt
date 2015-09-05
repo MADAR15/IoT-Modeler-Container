@@ -4,8 +4,12 @@ FROM node:0.10-slim
 MAINTAINER kh.Slimi
  
 # download latest stable node-red
-RUN npm install -g node-red
-
+RUN npm install -g grunt-cli
+RUN git clone https://github.com/MADAR15/IoT-Modeler.git
+RUN cd IoT-Modeler
+RUN npm install
+RUN grunt build
+RUN node red.js
 # use external storage for the user directory
 VOLUME /root/.node-red
 
@@ -14,4 +18,4 @@ EXPOSE 1880
  
 # Set the default command to execute
 # when creating a new container
-CMD /usr/local/bin/node-red
+#CMD /usr/local/bin/node-reds
