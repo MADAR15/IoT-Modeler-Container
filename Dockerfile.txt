@@ -19,7 +19,7 @@ VOLUME /root/.node-red
 
 # expose port
 EXPOSE 1880
-CMD node red.js
+#CMD node red.js
 
 # Set the default command to execute
 # when creating a new container
