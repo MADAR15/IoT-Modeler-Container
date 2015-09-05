@@ -8,9 +8,7 @@ RUN npm install -g grunt-cli
 RUN apt-get update
 RUN apt-get install -y curl git
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
-RUN cd IoT-Modeler
-RUN ls
-RUN chown -R $USER:$GROUP ~/.npm
+WORKDIR "/IoT-Modeler"
 RUN npm install
 RUN grunt build
 # use external storage for the user directory
