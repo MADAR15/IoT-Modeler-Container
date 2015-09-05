@@ -5,7 +5,8 @@ MAINTAINER kh.Slimi
  
 # download latest stable node-red
 RUN npm install -g grunt-cli
-RUN apt-get install git
+RUN apt-get update
+RUN apt-get install -y curl git
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
 RUN cd IoT-Modeler
 RUN npm install
