@@ -8,7 +8,8 @@ RUN npm install -g grunt-cli
 RUN apt-get update
 RUN apt-get install -y curl git
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
-RUN cd IoT-Modeler
+CMD cd IoT-Modeler
+CMD ls
 CMD chown -R $USER:$GROUP ~/.npm
 RUN npm install
 RUN grunt build
