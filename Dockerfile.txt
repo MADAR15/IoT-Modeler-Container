@@ -6,7 +6,11 @@ MAINTAINER kh.Slimi
 # download latest stable node-red
 RUN npm install -g grunt-cli
 RUN apt-get update
-RUN apt-get install -y curl git
+RUN apt-get install -y git build-essential
+RUN apt-get install python -y
+
+# docker build doesn't set env so node-gyp fails
+ENV USER root
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
 WORKDIR "/IoT-Modeler"
 RUN npm install
