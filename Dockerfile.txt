@@ -8,9 +8,9 @@ RUN npm install -g grunt-cli
 RUN apt-get update
 RUN apt-get install -y curl git
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
-CMD cd IoT-Modeler
-CMD ls
-CMD chown -R $USER:$GROUP ~/.npm
+RUN cd IoT-Modeler
+RUN ls
+RUN chown -R $USER:$GROUP ~/.npm
 RUN npm install
 RUN grunt build
 # use external storage for the user directory
@@ -18,7 +18,7 @@ VOLUME /root/.node-red
 
 # expose port
 EXPOSE 1880
-RUN node red.js
+CMD node red.js
 
 # Set the default command to execute
 # when creating a new container
