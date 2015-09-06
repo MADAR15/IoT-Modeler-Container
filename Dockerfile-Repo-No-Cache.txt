@@ -11,13 +11,19 @@ RUN apt-get install python -y
 # docker build doesn't set env so node-gyp fails
 ENV USER root
 
-ENV updated-adds-on 14-DEC-19
+ENV updated-adds-on 14-DEC-20
 RUN git clone https://github.com/MADAR15/IoT-Modeler.git
+
+WORKDIR "/IoT-Modeler"
+RUN git clone https://github.com/MADAR15/IoT-Modeler-Nodes.git
+
 WORKDIR "/IoT-Modeler/nodes/core/storage"
 RUN npm install cassandra-driver
+
 WORKDIR "/IoT-Modeler"
 RUN npm install
 RUN grunt build
+
 RUN chmod +x Refresh-Nodes.sh
 
 # use external storage for the user directory
