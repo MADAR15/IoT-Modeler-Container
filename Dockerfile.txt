@@ -18,6 +18,8 @@ RUN npm install
 RUN grunt build
 RUN chmod +x Refresh-Nodes.sh
 
+#ENV updated-adds-on 14-DEC-21
+
 RUN git clone https://github.com/MADAR15/nodes.git
 
 WORKDIR "/IoT-Modeler/nodes/core/storage"
