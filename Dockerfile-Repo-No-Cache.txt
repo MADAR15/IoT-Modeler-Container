@@ -18,7 +18,7 @@ RUN npm install cassandra-driver
 WORKDIR "/IoT-Modeler"
 RUN npm install
 RUN grunt build
-RUN chmod +x
+RUN chmod +x Refresh-Nodes.sh
 
 # use external storage for the user directory
 VOLUME /root/.node-red
